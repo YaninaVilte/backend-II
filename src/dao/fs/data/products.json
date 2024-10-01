@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "title": "Mate Camionero de Vidrio - Cuero Vacuno - Virola de Aluminio",
+        "description": "Mate",
+        "code": "CamioneroVCvA",
+        "price": 20000,
+        "status": true,
+        "stock": 33,
+        "category": "Mate",
+        "thumbnails": []
+    },
+    {
+        "id": 2,
+        "title": "Mate Torpedo de Calabaza - Cuero Vacuno - Virola de Aluminio",
+        "description": "Mate",
+        "code": "TorpedoCCvA",
+        "price": 25000,
+        "status": true,
+        "stock": 36,
+        "category": "Mate",
+        "thumbnails": []
+    },
+    {
+        "id": "73ee2926-c1e1-4724-ab93-d0618043af0b",
+        "title": "Prueba",
+        "description": "Ultima prueba",
+        "price": "1200",
+        "code": "123 - Prueba",
+        "stock": "12",
+        "category": "Pruebitas"
+    }
+]
