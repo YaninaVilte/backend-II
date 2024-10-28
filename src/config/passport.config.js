@@ -1,5 +1,6 @@
 import passport from "passport";
 import jwt from "passport-jwt";
+import UsersModel from "../dao/models/users.model.js";
 
 const JWTStrategy = jwt.Strategy;
 const ExtractJwt = jwt.ExtractJwt;
@@ -10,11 +11,16 @@ const initializePassport = () => {
         secretOrKey: "coderhouse",
     }, async (jwt_payload, done) => {
         try {
-            return done(null, jwt_payload);
+            console.log('JWT Payload:', jwt_payload);
+            const user = await UsersModel.findById(jwt_payload._id);
+            if (!user) {
+                return done(null, false);
+            }
+            return done(null, user);
         } catch (error) {
             return done(error);
         }
-    }))
+    }));
 }
 
 const cookieExtractor = (req) => {

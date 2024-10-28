@@ -1,66 +1,67 @@
-const socket = io();
+// const rol = document.getElementById("rol").textContent;
+// const email = document.getElementById("email").textContent;
+// const socket = io();
 
-socket.emit('message', "Comunicación desde websocket");
+// socket.emit('message', "Comunicación desde websocket");
 
-socket.on("products", (data) => {
+//     socket.on("productos", (data) => {
+//         renderProductos(data);
+//     })
+//     const renderProductos = (productos) => {
+//     const contenedorProductos = document.getElementById("contenedorProductos");
 
-    const productsList = document.getElementById("productsList");
+//     contenedorProductos.innerHTML = "";
 
-    productsList.innerHTML = '';
+//     productos.docs.forEach(item => {
+//         const card = document.createElement("div");
+//         card.classList.add("card");
 
-    data.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('product');
+//         card.innerHTML = ` 
+//                         <p> ${item.title} </p>
+//                         <p> ${item.price} </p>
+//                         <button> Eliminar </button>
+//                         `;
 
-        productElement.innerHTML = `
-            <p>Nombre: ${product.title}</p>
-            <p>Categoría: ${product.category}</p>
-            <p>Descripción: ${product.description}</p>
-            <p>Precio:$ ${product.price}</p>
-            <button class="delete-button" data-id="${product.id}">Eliminar</button>
-        `;
+//         contenedorProductos.appendChild(card);
+//         card.querySelector("button").addEventListener("click", () => {
+//             if (rol === "admin" ) {
+//                 eliminarProducto(item._id);
+//             } else if (rol === "admin") {
+//                 eliminarProducto(item._id);
+//             } else {
+//                 Swal.fire({
+//                     title: "Error",
+//                     text: "No tenes permiso para borrar ese producto",
+//                 })
+//             }
+//         });
+//     })
+// }
 
-        productsList.appendChild(productElement);
-    });
+// const eliminarProducto = (id) => {
+//     socket.emit("eliminarProducto", id);
+// }
 
-    const deleteButtons = document.querySelectorAll(".delete-button");
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const productId = button.getAttribute("data-id");
-            socket.emit("deleteProduct", productId);
-        });
-    });
-});
+// document.getElementById("btnEnviar").addEventListener("click", () => {
+//     addProducts();
+// })
 
-const form = document.getElementById("form")
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+// const addProducts = () => {
+//     const rol = document.getElementById("rol").textContent;
+//     const email = document.getElementById("email").textContent;
 
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const category = document.getElementById('category').value;
-    const code = document.getElementById('code').value;
-    const price = document.getElementById('price').value;
-    const stock = document.getElementById('stock').value;
+//     const owner = rol === "admin" ? email : "admin";
+//     const producto = {
+//     title: document.getElementById('title').value,
+//     description: document.getElementById('description').value,
+//     category: document.getElementById('category').value,
+//     code: document.getElementById('code').value,
+//     img: document.getElementById("img").value,
+//     price: document.getElementById('price').value,
+//     stock: document.getElementById('stock').value,
+//     status: document.getElementById("status").value === "true"
+//     };
 
-    if (e) {
-
-        socket.emit('productForm', {
-            title,
-            description,
-            category,
-            code,
-            price,
-            stock
-        });
-        console.log("enviado al socket")
-    }
-
-    document.getElementById('title').value = '';
-    document.getElementById('category').value = '';
-    document.getElementById('description').value = '';
-    document.getElementById('code').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('stock').value = '';
-});
+//     socket.emit("addProducts", producto);
+// }

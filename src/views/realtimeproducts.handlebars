@@ -1,4 +1,11 @@
+<h3 id="rol">{{rol}}</h3>
+<h3 id="email">{{email}}</h3>
+
+
 <h2>Productos</h2>
+<div id="contenedorProductos"></div>
+<div id="pagination"></div>
+
 
 <h2>Crear producto</h2>
 
@@ -10,7 +17,7 @@
         <br>
         <div>
             <label for="description">Descripción:</label>
-            <input type="text" id="description" name="tion" required>
+            <input type="text" id="description" name="description" required>
         </div>
         <br>
         <div>
@@ -27,20 +34,24 @@
             <label for="stock">Stock:</label>
             <input type="number" id="stock" name="stock" required>
         </div>
+        <input type="text" id="img" value="Sin Imagen">
         <br>
         <div>
             <label for="category">Categoría:</label>
             <input type="text" id="category" name="category" required>
         </div>
+        <select id="status">
+        <option value="true"> Activo </option>
+        <option value="false"> Inactivo </option>
+    </select>
         <br>
         <div>
-            <button type="submit">Crear</button>
+            <button type="submit" id="btnEnviar">Crear</button>
         </div>
     </form>
     </br>
 
-<div id="productsList"></div>
 
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="../js/realtimeproducts.js"></script>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="../public/js/main.js"></script>
