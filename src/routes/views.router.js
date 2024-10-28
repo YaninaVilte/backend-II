@@ -7,7 +7,7 @@ const viewsRouter = Router();
 const viewsController = new ViewsController();
 
 viewsRouter.get("/products", passport.authenticate('current', { session: false }), soloUser, viewsController.renderProducts);
-viewsRouter.get("/carts/:cid", viewsController.renderCart);
+viewsRouter.get("/carts/:cid", passport.authenticate('current', { session: false }), soloUser, viewsController.renderCart);
 viewsRouter.get("/login", viewsController.renderLogin);
 viewsRouter.get("/register", viewsController.renderRegister);
 viewsRouter.get("/realtimeproducts", passport.authenticate('current', { session: false }), soloAdmin, viewsController.renderRealTimeProducts);
