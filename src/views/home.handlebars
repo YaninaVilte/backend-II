@@ -1,17 +1,20 @@
-{{#if user.rol}}
-    {{#if (eq user.rol "user")}}
-        <a href="/products">Tienda</a>
-        <a href="/carts/{{user.cartId}}">Carrito</a>
-    {{else}}
-        <a href="/realtimeproducts">Gestión de productos</a>
+<div class="nav-links">
+    {{#if user.rol}}
+        {{#if (eq user.rol "user")}}
+            <a href="/products">Tienda</a>
+            <a href="/carts/{{user.cartId}}">Carrito</a>
+        {{else}}
+            <a href="/realtimeproducts">Gestión de productos</a>
+        {{/if}}
     {{/if}}
-{{/if}}
+</div>
 
-
-<h2>Te damos la bienvenida {{user.fullName}}!</h2>
-<h3>Email: {{user.email}}</h3>
-<h3>Rol: {{user.rol}}</h3>
+<div class="user-info">
+    <h2>Te damos la bienvenida, {{user.fullName}}!</h2>
+    <h3>Email: {{user.email}}</h3>
+    <h3>Rol: {{user.rol}}</h3>
+</div>
 
 <form action="/api/users/logout" method="POST">
-    <button type="submit"> Logout </button>
+    <button type="submit" class="btn-logout">Logout</button>
 </form>

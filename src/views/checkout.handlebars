@@ -1,16 +1,16 @@
 <div class="formulario">
     <h1>Checkout</h1>
-    <p>¡{{cliente}}, gracias por tu compra! El número de orden es: <span>{{numTicket}}</span></p>
+    <p>¡<span class="highlight">{{cliente}}</span>, gracias por tu compra! El número de orden es: <span class="highlight">{{numTicket}}</span></p>
 
     {{#if purchasedProducts.length}}
     <h2>Productos comprados:</h2>
     <ul>
         {{#each purchasedProducts}}
-        <li>Producto: {{this.id.title}}, Cantidad: {{this.cantidad}}, Precio: {{this.price}}, Subtotal: {{this.subtotal}}</li>
+        <li>Producto: {{this.id.title}}, Cantidad: {{this.cantidad}}, Precio: ${{this.price}}, Subtotal: ${{this.subtotal}}</li>
         {{/each}}
     </ul>
     {{else}}
-    <p>No se compraron productos.</p>
+    <p class="no-products">No se compraron productos.</p>
     {{/if}}
 
     {{#if unpurchasedProducts.length}}
@@ -21,13 +21,11 @@
         {{/each}}
     </ul>
     {{else}}
-    <p>Todos los productos estaban disponibles.</p>
+    <p class="no-products">Todos los productos estaban disponibles.</p>
     {{/if}}
 
-    <div>
-        <a href="/products">Ir a tienda</a>
-        <a href="/api/users/current">Perfil</a>
+    <div class="btn-container">
+        <a href="/products" class="btn btn-store">Ir a tienda</a>
+        <a href="/api/users/current" class="btn btn-profile">Perfil</a>
     </div>
 </div>
-
-
