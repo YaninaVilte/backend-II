@@ -19,7 +19,7 @@
                     <p>Cantidad: {{this.quantity}} | Precio unitario: ${{this.product.price}}</p>
                     <p class="product-subtotal">Subtotal: ${{this.product.totalPrice}}</p>
                 </div>
-                <button onclick="deleteProductFromCart('{{this.cartId}}', '{{this.product._id}}')" class="btn btn-danger">Eliminar</button>
+                <button onclick="deleteProductFromCart('{{this.cartId}}', '{{this.productId}}')" class="btn btn-danger">Eliminar</button>
             </li>
         {{/each}}
         </ul>
