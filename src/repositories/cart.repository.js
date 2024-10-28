@@ -56,7 +56,8 @@ class CartRepository {
             await cart.save();
             return cart;
         } catch (error) {
-            throw new Error("Error");
+            console.error('Error al eliminar producto:', error);
+            throw new Error("Error al eliminar el producto del carrito.");
         }
     }
 

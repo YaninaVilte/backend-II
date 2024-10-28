@@ -3,13 +3,14 @@
 
 <h2>Carrito</h2>
 <h3>N° {{cartId}}</h3>
+
 <ul>
 
     <div>
         {{#each productos}}
             <li>Producto: {{this.product.title}} - Cantidad: {{this.quantity}} - Precio unitario: {{this.product.price}}</li>
             <p class="card-text">Subtotal: ${{this.product.totalPrice}}</p>
-            <button onclick="deleteProductFromStore('{{this.cartId}}', '{{this.product._id}}')">Eliminar</button>
+            <button onclick="deleteProductFromCart('{{this.cartId}}', '{{this.productId}}')">Eliminar</button>
 
         {{/each}}
     </div>

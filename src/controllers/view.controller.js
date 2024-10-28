@@ -60,6 +60,7 @@ class ViewsController {
                 return {
                     product: { ...product, totalPrice },
                     quantity,
+                    productId: product._id, // Asegúrate de incluir el ID del producto aquí
                     cartId
                 };
             });
@@ -72,6 +73,7 @@ class ViewsController {
             res.status(500).json({ error: "Error interno del servidor", details: error.message });
         }
     }
+
 
 
     async renderLogin(req, res) {

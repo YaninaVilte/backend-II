@@ -49,9 +49,11 @@ class CartController {
         }
     }
 
+
     async removeProductFromCart(req, res) {
         const cartId = req.params.cid;
         const productId = req.params.pid;
+        console.log('Intentando eliminar producto:', { cartId, productId });
         try {
             const updatedCart = await cartRepository.removeProduct(cartId, productId);
             res.json({
@@ -60,9 +62,11 @@ class CartController {
                 updatedCart,
             });
         } catch (error) {
+            console.error('Error al eliminar producto del carrito:', error);
             res.status(500).json({ error: "Error al eliminar el producto del carrito." });
         }
     }
+
 
     async updateProductsCart(req, res) {
         const cartId = req.params.cid;
