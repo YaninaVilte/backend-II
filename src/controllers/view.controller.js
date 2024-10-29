@@ -55,14 +55,16 @@ class ViewsController {
             const productsInCart = cart.productos.map(item => {
                 const product = item.product;
                 const quantity = item.quantity;
-                const price = product.price
+                const price = product.price;
                 const totalPrice = product.price * quantity;
+                const title = product.title;
 
                 return {
                     product: { ...product, price, totalPrice },
                     quantity,
                     productId: product._id,
-                    cartId
+                    cartId,
+                    title
                 };
             });
 

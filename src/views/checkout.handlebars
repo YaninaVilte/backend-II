@@ -1,16 +1,26 @@
 <div class="formulario">
     <h1>Checkout</h1>
     <p>¡<span class="highlight">{{cliente}}</span>, gracias por tu compra! El número de orden es: <span class="highlight">{{numTicket}}</span></p>
+    <p>Nos comunicaremos a {{email}}, para detalles sobre entrega.</p>
 
     {{#if purchasedProducts.length}}
+
+
     <h2>Productos comprados:</h2>
     <ul>
         {{#each purchasedProducts}}
-        <li>Producto: {{this.id.title}}, Cantidad: {{this.cantidad}}, Precio: ${{this.price}}, Subtotal: ${{this.subtotal}}</li>
+            <li>
+                <div>
+                    <p>Producto: {{this.id.title}}</p>
+                    <p>Cantidad: {{this.cantidad}} | Precio unitario: ${{price}}</p>
+                    <p>Subtotal: ${{this.subtotal}}</p>
+                </div>
+            </li>
         {{/each}}
     </ul>
+    <h3>Total de la compra: ${{totalPurchase}}</h3>
     {{else}}
-    <p class="no-products">No se compraron productos.</p>
+    <p>No se compraron productos.</p>
     {{/if}}
 
     {{#if unpurchasedProducts.length}}

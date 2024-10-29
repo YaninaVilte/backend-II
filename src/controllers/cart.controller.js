@@ -122,6 +122,7 @@ class CartController {
 
             const unpurchasedProducts = [];
             const purchasedProducts = [];
+            let totalPurchase = 0;
 
             for (const item of productos) {
                 const productId = item.product;
@@ -131,7 +132,8 @@ class CartController {
                     product.stock -= item.quantity;
                     await product.save();
                     const subtotal = item.quantity * product.price;
-                    purchasedProducts.push({ id: productId, price: item.price, cantidad: item.quantity, subtotal: subtotal });
+                    totalPurchase += subtotal;
+                    purchasedProducts.push({ id: productId, price: product.price, cantidad: item.quantity, subtotal });
                 } else {
                     unpurchasedProducts.push(productId);
                 }
@@ -159,7 +161,8 @@ class CartController {
                 email: userWithCart.email,
                 numTicket: ticket._id,
                 purchasedProducts,
-                unpurchasedProducts
+                unpurchasedProducts,
+                totalPurchase
             });
 
         } catch (error) {
