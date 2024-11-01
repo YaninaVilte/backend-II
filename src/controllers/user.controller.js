@@ -54,7 +54,7 @@ class UserController {
             res.redirect("/api/users/current");
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
-            res.status(401).send({ error: "Credenciales inválidas" });
+            res.status(401).send({ error: "Usuario no registrado o contraseña incorrecta" });
         }
     }
     
